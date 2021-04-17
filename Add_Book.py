@@ -16,8 +16,11 @@ def kitab_melumatlari():
 
     while True:
         book_name = input("Kitabin adini daxil edin:")
-        if ad_yoxlama(book_name):
+        if regular(book_name) and space_name(book_name):
             break
+        else:
+            print("Siz ancaq string melumat daxil ede bilersiz!")
+
     while True:
         try:
             price_of_book = int(input("Kitabin qiymetini daxil edin:"))
@@ -49,14 +52,14 @@ def kitab_melumatlari():
 
     melumatlari_yerlesdir(info)
 
-def ad_yoxlama(book_name):
-    if book_name !="":
-        return True
+def regular(book_name):
+    if book_name.isnumeric():
+        return False
     else:
-        print("------------------------------------------")
-        print("Kitab adi daxil edin!")
-        print("------------------------------------------")
-
+        return True
+def space_name(book_name):
+    if len(book_name)!=0:
+        return True
 def janr_yoxlama(type_of_book):
     if type_of_book!="":
         return True
